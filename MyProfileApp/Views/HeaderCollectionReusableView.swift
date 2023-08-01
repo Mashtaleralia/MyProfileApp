@@ -38,7 +38,8 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     private let professionLabel: UILabel = {
         let label = UILabel()
         label.clipsToBounds = true
-        label.numberOfLines = 1
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
         label.textColor = UIColor(red: 0.588, green: 0.584, blue: 0.608, alpha: 1)
         label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
         return label

@@ -20,6 +20,7 @@
 		849869822A7929B500CC351A /* UILabel+addImageWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869812A7929B500CC351A /* UILabel+addImageWith.swift */; };
 		849869852A794D7400CC351A /* DeletableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869832A794D7300CC351A /* DeletableCollectionViewCell.swift */; };
 		849869862A794D7400CC351A /* DeletableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849869842A794D7400CC351A /* DeletableCollectionViewCell.xib */; };
+		849869882A79535000CC351A /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869872A79534F00CC351A /* FooterCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		849869812A7929B500CC351A /* UILabel+addImageWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+addImageWith.swift"; sourceTree = "<group>"; };
 		849869832A794D7300CC351A /* DeletableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletableCollectionViewCell.swift; sourceTree = "<group>"; };
 		849869842A794D7400CC351A /* DeletableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletableCollectionViewCell.xib; sourceTree = "<group>"; };
+		849869872A79534F00CC351A /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				8498697F2A7926AE00CC351A /* HeaderCollectionReusableView.swift */,
 				849869832A794D7300CC351A /* DeletableCollectionViewCell.swift */,
 				849869842A794D7400CC351A /* DeletableCollectionViewCell.xib */,
+				849869872A79534F00CC351A /* FooterCollectionReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				849869632A78EC8000CC351A /* ProfileViewController.swift in Sources */,
 				8498695F2A78EC8000CC351A /* AppDelegate.swift in Sources */,
 				849869612A78EC8000CC351A /* SceneDelegate.swift in Sources */,
+				849869882A79535000CC351A /* FooterCollectionReusableView.swift in Sources */,
 				849869802A7926AE00CC351A /* HeaderCollectionReusableView.swift in Sources */,
 				849869782A78F3C200CC351A /* Models.swift in Sources */,
 				849869822A7929B500CC351A /* UILabel+addImageWith.swift in Sources */,
