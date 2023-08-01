@@ -15,7 +15,13 @@ class ProfileViewController: UIViewController {
     
     private var deleting: Bool = false
     
-    private var mockData = ["MVI/MVVM", "Kotlin Coroutins", "Room", "OKHttp", "DataStore", "WorkManager", "custom view", "Data Store", "OOP Solid"]
+    private var tracker = 0
+    
+    private var mockData = ["MVI/MVVM", "Kotlin Coroutins", "Room", "OKHttp", "DataStore", "WorkManager", "custom view", "Data Store", "OOP Solid"] {
+        didSet {
+            tracker += 1
+        }
+    }
     
     private let insets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 
@@ -108,9 +114,9 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
             cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
             cell.delegate = self
             cell.deleteButton?.layer.setValue(indexPath.row, forKey: "index")
-            if mockData[indexPath.row] == "+" {
-                cell.configureForAdding()
-            }
+//            if indexPath.row == mockData.count - 1 {
+//                cell.configureForAdding()
+//            }
             cell.layer.cornerRadius = 10
             return cell
         } else {

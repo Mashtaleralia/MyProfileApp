@@ -31,6 +31,7 @@ class DeletableCollectionViewCell: UICollectionViewCell {
       
     }
     
+    
     public func configureForAdding() {
         deleteButton.isHidden = true
     }
