@@ -48,6 +48,7 @@
             </constraints>
             <size key="customSize" width="132" height="39"/>
             <connections>
+                <outlet property="deleteButton" destination="xRk-Wc-boh" id="YKG-xZ-3zL"/>
                 <outlet property="skillLabel" destination="kip-06-0B2" id="g5s-Gs-HY7"/>
             </connections>
             <point key="canvasLocation" x="197.10144927536234" y="92.075892857142847"/>

@@ -37,7 +37,9 @@ class ProfileViewController: UIViewController {
     }
 
     @objc private func didTapEditButton() {
+        
         deleting = true
+        mockData.append("+")
         collectionView.reloadData()
     }
     
@@ -69,6 +71,8 @@ class ProfileViewController: UIViewController {
 
 }
 
+//extension ProfileViewController: 
+
 
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,6 +81,9 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeletableCollectionViewCell", for: indexPath) as! DeletableCollectionViewCell
             cell.skillLabel.text =  mockData[indexPath.item]
             cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
+            if indexPath.row == mockData.count - 1 {
+                //cell.configureForAdding()
+            }
             cell.layer.cornerRadius = 10
             return cell
         } else {
@@ -90,6 +97,31 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
        
         
      
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if deleting {
+            if indexPath.row == mockData.count - 1 {
+                let alert = UIAlertController(title: "Добавление навыка", message: "Введите название навыка которым владеете", preferredStyle: .alert)
+                alert.addTextField(configurationHandler: { textField in
+                    textField.placeholder = "Введите название"
+                })
+                alert.addAction(UIAlertAction(title: "Добавить", style: .default, handler: { [weak self] _ in
+                    let textField = alert.textFields![0] as UITextField
+                    guard let path = self?.mockData.count else {
+                        return
+                    }
+                    if let text = textField.text {
+                        self?.mockData.insert(text, at: (path) - 1)
+                    }
+                    
+                    collectionView.reloadData()
+                }))
+                alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+                present(alert, animated: true)
+            }
+
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -149,3 +181,4 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
 }
+

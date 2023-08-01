@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CellDeletionDelegate: AnyObject {
+    func deleteSkills()
+}
+
 class DeletableCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var skillLabel: UILabel!
@@ -14,7 +18,17 @@ class DeletableCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
+    
+    weak var delegate: CellDeletionDelegate?
 
+    @IBOutlet weak var deleteButton: UIButton!
     @IBAction func deleteButtonAction(_ sender: Any) {
+        delegate?.deleteSkills()
     }
+    
+    public func configureForAdding() {
+        deleteButton.isHidden = true
+    }
+    
+   
 }
