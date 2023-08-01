@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController {
     
     private let insets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 
+    private let user = AppUser(fullName: "Иванов Иван Иванович Иванов Иван Иванович", profession: "Middle IOS-разработчик, опыт более 2-х лет", city: "Воронеж")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
@@ -40,7 +42,7 @@ class ProfileViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
+        collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
         collectionView.register(UINib(nibName: "SkillCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "SkillCollectionViewCell")
         collectionView.backgroundColor = .white
         return collectionView
@@ -94,6 +96,16 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return insets
       }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
+        header.setUpHeader(with: user)
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 287)
+    }
     
     
 }

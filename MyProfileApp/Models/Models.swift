@@ -10,3 +10,9 @@ import Foundation
 struct Skill {
     var skillName: String
 }
+
+struct AppUser {
+    var fullName: String
+    var profession: String
+    var city: String
+}

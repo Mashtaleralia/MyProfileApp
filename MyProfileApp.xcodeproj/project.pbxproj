@@ -16,6 +16,8 @@
 		849869782A78F3C200CC351A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869772A78F3C200CC351A /* Models.swift */; };
 		8498697D2A7916CC00CC351A /* SkillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498697B2A7916CC00CC351A /* SkillCollectionViewCell.swift */; };
 		8498697E2A7916CC00CC351A /* SkillCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498697C2A7916CC00CC351A /* SkillCollectionViewCell.xib */; };
+		849869802A7926AE00CC351A /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498697F2A7926AE00CC351A /* HeaderCollectionReusableView.swift */; };
+		849869822A7929B500CC351A /* UILabel+addImageWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869812A7929B500CC351A /* UILabel+addImageWith.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		849869772A78F3C200CC351A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8498697B2A7916CC00CC351A /* SkillCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCollectionViewCell.swift; sourceTree = "<group>"; };
 		8498697C2A7916CC00CC351A /* SkillCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillCollectionViewCell.xib; sourceTree = "<group>"; };
+		8498697F2A7926AE00CC351A /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		849869812A7929B500CC351A /* UILabel+addImageWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+addImageWith.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				849869672A78EC8900CC351A /* Assets.xcassets */,
 				8498697B2A7916CC00CC351A /* SkillCollectionViewCell.swift */,
 				8498697C2A7916CC00CC351A /* SkillCollectionViewCell.xib */,
+				8498697F2A7926AE00CC351A /* HeaderCollectionReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			children = (
 				8498695E2A78EC8000CC351A /* AppDelegate.swift */,
 				849869602A78EC8000CC351A /* SceneDelegate.swift */,
+				849869812A7929B500CC351A /* UILabel+addImageWith.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,7 +198,9 @@
 				849869632A78EC8000CC351A /* ProfileViewController.swift in Sources */,
 				8498695F2A78EC8000CC351A /* AppDelegate.swift in Sources */,
 				849869612A78EC8000CC351A /* SceneDelegate.swift in Sources */,
+				849869802A7926AE00CC351A /* HeaderCollectionReusableView.swift in Sources */,
 				849869782A78F3C200CC351A /* Models.swift in Sources */,
+				849869822A7929B500CC351A /* UILabel+addImageWith.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
