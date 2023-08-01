@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DeletableCollectionViewCell" id="gTV-IL-0wX" customClass="DeletableCollectionViewCell" customModule="MyProfileApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="132" height="39"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="132" height="39"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kip-06-0B2">
+                        <rect key="frame" x="24" y="12" width="60" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRk-Wc-boh">
+                        <rect key="frame" x="94" y="12.5" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="Pck-s8-jmx"/>
+                            <constraint firstAttribute="width" constant="14" id="ggh-ri-s7Z"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="delete"/>
+                        <connections>
+                            <action selector="deleteButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ebl-lu-vHN"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="kip-06-0B2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="IWf-0M-Q7l"/>
+                <constraint firstAttribute="bottom" secondItem="kip-06-0B2" secondAttribute="bottom" constant="12" id="Pvf-By-11c"/>
+                <constraint firstAttribute="trailing" secondItem="xRk-Wc-boh" secondAttribute="trailing" constant="24" id="Tfl-aI-owe"/>
+                <constraint firstItem="xRk-Wc-boh" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Yox-yY-mlq"/>
+                <constraint firstItem="kip-06-0B2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="jxi-RS-gXP"/>
+                <constraint firstItem="xRk-Wc-boh" firstAttribute="leading" secondItem="kip-06-0B2" secondAttribute="trailing" constant="10" id="rtl-EV-V6p"/>
+            </constraints>
+            <size key="customSize" width="132" height="39"/>
+            <connections>
+                <outlet property="skillLabel" destination="kip-06-0B2" id="g5s-Gs-HY7"/>
+            </connections>
+            <point key="canvasLocation" x="197.10144927536234" y="92.075892857142847"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="delete" width="7" height="7"/>
+    </resources>
+</document>

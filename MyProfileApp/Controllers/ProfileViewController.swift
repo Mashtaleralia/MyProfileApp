@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController {
     
     private var skills = [Skill]()
     
+    private var deleting: Bool = false
+    
     private var mockData = ["MVI/MVVM", "Kotlin Coroutins", "Room", "OKHttp", "DataStore", "WorkManager", "custom view", "Data Store", "OOP Solid", "jjj", "fjdjdjdjdjjjd", "fhgfhfhfhfjfjfjfjfjf"]
     
     private let insets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
@@ -23,7 +25,9 @@ class ProfileViewController: UIViewController {
         
         view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
               view.addSubview(collectionView)
-        
+       
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pencil"), style: .done , target: self, action: #selector(didTapEditButton))
+        navigationItem.rightBarButtonItem?.tintColor = .black
               collectionView.delegate = self
               collectionView.dataSource = self
 //        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -32,7 +36,10 @@ class ProfileViewController: UIViewController {
   
     }
 
-    
+    @objc private func didTapEditButton() {
+        deleting = true
+        collectionView.reloadData()
+    }
     
     
     private let collectionView: UICollectionView = {
@@ -44,6 +51,7 @@ class ProfileViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
         collectionView.register(UINib(nibName: "SkillCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "SkillCollectionViewCell")
+        collectionView.register(UINib(nibName: "DeletableCollectionViewCell", bundle: nil) , forCellWithReuseIdentifier: "DeletableCollectionViewCell")
         collectionView.backgroundColor = .white
         return collectionView
     }()
@@ -52,6 +60,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
+
+
     
 
 }
@@ -59,11 +69,24 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillCollectionViewCell", for: indexPath) as! SkillCollectionViewCell
-        cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
-        cell.layer.cornerRadius = 10
-        cell.skillLabel.text =  mockData[indexPath.item]
-        return cell
+        
+        if deleting {
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeletableCollectionViewCell", for: indexPath) as! DeletableCollectionViewCell
+            cell.skillLabel.text =  mockData[indexPath.item]
+            cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
+            cell.layer.cornerRadius = 10
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillCollectionViewCell", for: indexPath) as! SkillCollectionViewCell
+            cell.skillLabel.text =  mockData[indexPath.item]
+            cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
+            cell.layer.cornerRadius = 10
+            return cell
+        }
+        
+       
+        
+     
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

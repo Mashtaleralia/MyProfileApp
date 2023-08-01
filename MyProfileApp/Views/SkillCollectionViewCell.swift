@@ -10,10 +10,14 @@ import UIKit
 class SkillCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var skillLabel: UILabel!
+    
+    @IBOutlet weak var trailingLabelConstraint: NSLayoutConstraint!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.layer.cornerRadius = 12
     }
+  
     
     
 

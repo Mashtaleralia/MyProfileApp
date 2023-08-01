@@ -12,7 +12,11 @@ private enum Constants: CGFloat {
 }
 
 class HeaderCollectionReusableView: UICollectionReusableView {
+    
+    
     static let identifier = "HeaderCollectionReusableView"
+    
+   
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
