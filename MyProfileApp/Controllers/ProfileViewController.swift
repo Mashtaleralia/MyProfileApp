@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController {
         
         view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
               view.addSubview(collectionView)
+       
         navigationItem.rightBarButtonItem?.tintColor = .black
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pencil"), style: .done , target: self, action: #selector(didTapEditButton))
         
