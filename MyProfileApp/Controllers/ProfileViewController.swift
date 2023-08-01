@@ -8,40 +8,53 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+  
+    
     
     private var skills = [Skill]()
     
     private var deleting: Bool = false
     
-    private var mockData = ["MVI/MVVM", "Kotlin Coroutins", "Room", "OKHttp", "DataStore", "WorkManager", "custom view", "Data Store", "OOP Solid", "jjj", "fjdjdjdjdjjjd", "fhgfhfhfhfjfjfjfjfjf"]
+    private var mockData = ["MVI/MVVM", "Kotlin Coroutins", "Room", "OKHttp", "DataStore", "WorkManager", "custom view", "Data Store", "OOP Solid"]
     
     private let insets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
 
-    private let user = AppUser(fullName: "Иванов Иван Иванович Иванов Иван Иванович", profession: "Middle IOS-разработчик, опыт более 2-х лет", city: "Воронеж")
+    private let user = AppUser(fullName: "Машталер Алевтина Александровна", profession: "junior IOS-разработчик, опыт менее года", city: "Москва")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
-        
+      
+       
         view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
               view.addSubview(collectionView)
-       
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pencil"), style: .done , target: self, action: #selector(didTapEditButton))
         navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pencil"), style: .done , target: self, action: #selector(didTapEditButton))
+        
               collectionView.delegate = self
               collectionView.dataSource = self
-//        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        }
+
+       
   
     }
 
     @objc private func didTapEditButton() {
-        
+
         deleting = true
         mockData.append("+")
         collectionView.reloadData()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "done"), style: .done , target: self, action: #selector(didTapDoneButton))
     }
+
+    @objc private func didTapDoneButton() {
+        deleting = false
+        mockData.removeLast()
+        collectionView.reloadData()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pencil"), style: .done , target: self, action: #selector(didTapEditButton))
+    }
+ 
     
     
     private let collectionView: UICollectionView = {
@@ -75,6 +88,7 @@ extension ProfileViewController: CellDeletionDelegate {
     func deleteSkills(_ index: Int) {
         mockData.remove(at: index)
         collectionView.reloadData()
+        UserDefaults.standard.set(mockData, forKey: "skills")
     }
     
     
@@ -125,7 +139,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
                     if let text = textField.text {
                         self?.mockData.insert(text, at: (path) - 1)
                     }
-                    
+                    UserDefaults.standard.set(self?.mockData, forKey: "skills")
                     collectionView.reloadData()
                 }))
                 alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
@@ -142,26 +156,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mockData.count
     }
-    
-
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let availabelWidth = view.frame.width - (insets.left)*2
-//        let spacing: CGFloat = 12
-//        let height: CGFloat = 44
-//        let numberOfItemsPerRow: CGFloat = 3
-//        //let cellWidth: CGFloat = 20
-//        let cellWidth = (availabelWidth - spacing*(numberOfItemsPerRow - 1)) / numberOfItemsPerRow
-//       return CGSize(width: cellWidth, height: height)
-//      }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let label = UILabel(frame: CGRect.zero)
-//              label.text = "Bruuh"
-//              label.sizeToFit()
-//              return CGSize(width: label.frame.width, height: 44)
-//    }
-//    
+  
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return insets
       }
@@ -184,7 +179,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 287)
+        return CGSize(width: view.frame.width, height: 317)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)

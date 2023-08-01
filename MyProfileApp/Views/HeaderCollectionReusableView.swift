@@ -11,12 +11,12 @@ private enum Constants: CGFloat {
     case cornerRadius = 60
 }
 
+
 class HeaderCollectionReusableView: UICollectionReusableView {
     
     
     static let identifier = "HeaderCollectionReusableView"
     
-   
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -34,6 +34,29 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         return label
     }()
+    
+    public func configureMySkillsHeader() {
+        let view = UIView()
+        view.backgroundColor = .white
+        let label = UILabel()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+     
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textColor = .black
+        label.text = "Мои навыки"
+        self.addSubview(view)
+        view.addSubview(label)
+        
+        view.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 20).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
+        label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        label.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+     
+    }
+
+    
     
     private let professionLabel: UILabel = {
         let label = UILabel()
@@ -61,7 +84,10 @@ class HeaderCollectionReusableView: UICollectionReusableView {
         self.addSubview(fullNameLabel)
         self.addSubview(professionLabel)
         self.addSubview(cityLabel)
+     
+      
         setUpConstraints()
+        configureMySkillsHeader()
     }
     
     public func setUpHeader(with model: AppUser) {

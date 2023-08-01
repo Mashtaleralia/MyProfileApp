@@ -26,6 +26,7 @@ class DeletableCollectionViewCell: UICollectionViewCell {
        
         if let index = sender.layer.value(forKey: "index") as? Int {
             delegate?.deleteSkills(index)
+            
         }
       
     }
