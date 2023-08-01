@@ -14,7 +14,8 @@ class FooterCollectionReusableView: UICollectionReusableView {
         private let titleLabel: UILabel = {
             let label = UILabel()
             label.clipsToBounds = true
-            label.font = UIFont.systemFont(ofSize: 16)
+            label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+            
             label.textColor = .black
             return label
         }()

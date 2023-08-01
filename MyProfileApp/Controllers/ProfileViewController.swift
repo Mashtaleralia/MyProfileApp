@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
   
     
     
-    private var skills = [Skill]()
+    private var skills = [Skill(skillName: "MVI/MVVM"),Skill(skillName: "MVI/MVVM"), Skill(skillName: "MVI/MVVM"), Skill(skillName: "MVI/MVVM"), Skill(skillName: "MVI/MVVM"), Skill(skillName: "MVI/MVVM"),Skill(skillName: "MVI/MVVM"), Skill(skillName: "MVI/MVVM"), Skill(skillName: "MVI/MVVM")]
     
     private var deleting: Bool = false
     
@@ -24,8 +24,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
-      
-       
+        if let data = UserDefaults.standard.array(forKey: "skills") as? [String] {
+            mockData = data
+        }
+        
         view.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
               view.addSubview(collectionView)
         navigationItem.rightBarButtonItem?.tintColor = .black
@@ -87,8 +89,8 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: CellDeletionDelegate {
     func deleteSkills(_ index: Int) {
         mockData.remove(at: index)
+        UserDefaults.standard.set(self.mockData, forKey: "skills")
         collectionView.reloadData()
-        UserDefaults.standard.set(mockData, forKey: "skills")
     }
     
     
@@ -106,8 +108,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
             cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
             cell.delegate = self
             cell.deleteButton?.layer.setValue(indexPath.row, forKey: "index")
-            if indexPath.row == mockData.count - 1 {
-                //cell.configureForAdding()
+            if mockData[indexPath.row] == "+" {
+                cell.configureForAdding()
             }
             cell.layer.cornerRadius = 10
             return cell
@@ -129,6 +131,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
             if indexPath.row == mockData.count - 1 {
                 let alert = UIAlertController(title: "Добавление навыка", message: "Введите название навыка которым владеете", preferredStyle: .alert)
                 alert.addTextField(configurationHandler: { textField in
+                    textField.becomeFirstResponder()
                     textField.placeholder = "Введите название"
                 })
                 alert.addAction(UIAlertAction(title: "Добавить", style: .default, handler: { [weak self] _ in
@@ -138,8 +141,9 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
                     }
                     if let text = textField.text {
                         self?.mockData.insert(text, at: (path) - 1)
+                        UserDefaults.standard.set(self?.mockData, forKey: "skills")
                     }
-                    UserDefaults.standard.set(self?.mockData, forKey: "skills")
+                    
                     collectionView.reloadData()
                 }))
                 alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
