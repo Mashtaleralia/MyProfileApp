@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
         deleting = true
         mockData.append("+")
         collectionView.reloadData()
-
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "done"), style: .done , target: self, action: #selector(didTapDoneButton))
     }
 
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
         deleting = false
         mockData.removeLast()
         collectionView.reloadData()
-
+        UserDefaults.standard.set(self.mockData, forKey: "skills")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "pencil"), style: .done , target: self, action: #selector(didTapEditButton))
     }
  
@@ -90,7 +90,6 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: CellDeletionDelegate {
     func deleteSkills(_ index: Int) {
         mockData.remove(at: index)
-        UserDefaults.standard.set(self.mockData, forKey: "skills")
         collectionView.reloadData()
     }
     
@@ -142,7 +141,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
                     }
                     if let text = textField.text {
                         self?.mockData.insert(text, at: (path) - 1)
-                        UserDefaults.standard.set(self?.mockData, forKey: "skills")
+                        
                     }
                     
                     collectionView.reloadData()
