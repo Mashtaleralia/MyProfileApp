@@ -14,6 +14,8 @@
 		849869682A78EC8900CC351A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849869672A78EC8900CC351A /* Assets.xcassets */; };
 		8498696B2A78EC8900CC351A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849869692A78EC8900CC351A /* LaunchScreen.storyboard */; };
 		849869782A78F3C200CC351A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869772A78F3C200CC351A /* Models.swift */; };
+		8498697D2A7916CC00CC351A /* SkillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498697B2A7916CC00CC351A /* SkillCollectionViewCell.swift */; };
+		8498697E2A7916CC00CC351A /* SkillCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8498697C2A7916CC00CC351A /* SkillCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8498696A2A78EC8900CC351A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8498696C2A78EC8900CC351A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849869772A78F3C200CC351A /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		8498697B2A7916CC00CC351A /* SkillCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCollectionViewCell.swift; sourceTree = "<group>"; };
+		8498697C2A7916CC00CC351A /* SkillCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 			children = (
 				849869762A78EDCE00CC351A /* Storyboards */,
 				849869672A78EC8900CC351A /* Assets.xcassets */,
+				8498697B2A7916CC00CC351A /* SkillCollectionViewCell.swift */,
+				8498697C2A7916CC00CC351A /* SkillCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 			files = (
 				8498696B2A78EC8900CC351A /* LaunchScreen.storyboard in Resources */,
 				849869682A78EC8900CC351A /* Assets.xcassets in Resources */,
+				8498697E2A7916CC00CC351A /* SkillCollectionViewCell.xib in Resources */,
 				849869662A78EC8000CC351A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8498697D2A7916CC00CC351A /* SkillCollectionViewCell.swift in Sources */,
 				849869632A78EC8000CC351A /* ProfileViewController.swift in Sources */,
 				8498695F2A78EC8000CC351A /* AppDelegate.swift in Sources */,
 				849869612A78EC8000CC351A /* SceneDelegate.swift in Sources */,
