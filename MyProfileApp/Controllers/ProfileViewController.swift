@@ -71,7 +71,16 @@ class ProfileViewController: UIViewController {
 
 }
 
-//extension ProfileViewController: 
+extension ProfileViewController: CellDeletionDelegate {
+    func deleteSkills(_ index: Int) {
+        mockData.remove(at: index)
+        collectionView.reloadData()
+    }
+    
+    
+    
+    
+}
 
 
 extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -81,6 +90,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeletableCollectionViewCell", for: indexPath) as! DeletableCollectionViewCell
             cell.skillLabel.text =  mockData[indexPath.item]
             cell.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.96, alpha: 1)
+            cell.delegate = self
+            cell.deleteButton?.layer.setValue(indexPath.row, forKey: "index")
             if indexPath.row == mockData.count - 1 {
                 //cell.configureForAdding()
             }

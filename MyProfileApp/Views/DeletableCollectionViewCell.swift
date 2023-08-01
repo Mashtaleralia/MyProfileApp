@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CellDeletionDelegate: AnyObject {
-    func deleteSkills()
+    func deleteSkills(_ index: Int)
 }
 
 class DeletableCollectionViewCell: UICollectionViewCell {
@@ -22,8 +22,12 @@ class DeletableCollectionViewCell: UICollectionViewCell {
     weak var delegate: CellDeletionDelegate?
 
     @IBOutlet weak var deleteButton: UIButton!
-    @IBAction func deleteButtonAction(_ sender: Any) {
-        delegate?.deleteSkills()
+    @IBAction func deleteButtonAction(_ sender: UIButton) {
+       
+        if let index = sender.layer.value(forKey: "index") as? Int {
+            delegate?.deleteSkills(index)
+        }
+      
     }
     
     public func configureForAdding() {
