@@ -67,13 +67,16 @@ class ProfileViewController: UIViewController {
     
     
     private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+ //       let layout = UICollectionViewFlowLayout()
 //        layout.minimumLineSpacing = 12
 //        layout.minimumInteritemSpacing = 12
         
-        layout.scrollDirection = .vertical
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        layout.scrollDirection = .vertical
+//        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        let columnLayout = CustomViewFlowLayout()
+        columnLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+       
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
         collectionView.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
         collectionView.register(FooterCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: FooterCollectionReusableView.identifier)
 
@@ -87,10 +90,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
-
-
-    
-
 }
 
 extension ProfileViewController: CellDeletionDelegate {
@@ -131,6 +130,8 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         
      
     }
+    
+ 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if deleting {
@@ -176,6 +177,7 @@ extension ProfileViewController: UICollectionViewDataSource, UICollectionViewDel
         switch kind {
         case  UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as! HeaderCollectionReusableView
+            
             header.setUpHeader(with: user)
             return header
         case UICollectionView.elementKindSectionFooter:

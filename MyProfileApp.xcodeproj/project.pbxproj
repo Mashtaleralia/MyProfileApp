@@ -21,6 +21,7 @@
 		849869852A794D7400CC351A /* DeletableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869832A794D7300CC351A /* DeletableCollectionViewCell.swift */; };
 		849869862A794D7400CC351A /* DeletableCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849869842A794D7400CC351A /* DeletableCollectionViewCell.xib */; };
 		849869882A79535000CC351A /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869872A79534F00CC351A /* FooterCollectionReusableView.swift */; };
+		8498698A2A79956200CC351A /* CustomViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849869892A79956100CC351A /* CustomViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		849869832A794D7300CC351A /* DeletableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletableCollectionViewCell.swift; sourceTree = "<group>"; };
 		849869842A794D7400CC351A /* DeletableCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletableCollectionViewCell.xib; sourceTree = "<group>"; };
 		849869872A79534F00CC351A /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		849869892A79956100CC351A /* CustomViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				849869832A794D7300CC351A /* DeletableCollectionViewCell.swift */,
 				849869842A794D7400CC351A /* DeletableCollectionViewCell.xib */,
 				849869872A79534F00CC351A /* FooterCollectionReusableView.swift */,
+				849869892A79956100CC351A /* CustomViewFlowLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				8498697D2A7916CC00CC351A /* SkillCollectionViewCell.swift in Sources */,
 				849869632A78EC8000CC351A /* ProfileViewController.swift in Sources */,
 				8498695F2A78EC8000CC351A /* AppDelegate.swift in Sources */,
+				8498698A2A79956200CC351A /* CustomViewFlowLayout.swift in Sources */,
 				849869612A78EC8000CC351A /* SceneDelegate.swift in Sources */,
 				849869882A79535000CC351A /* FooterCollectionReusableView.swift in Sources */,
 				849869802A7926AE00CC351A /* HeaderCollectionReusableView.swift in Sources */,
